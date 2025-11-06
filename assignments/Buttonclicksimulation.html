@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Button Click Simulation</title>
+</head>
+<body>
+    <!-- Paragraph to display messages -->
+    <p id="message">Waiting...</p>
+
+    <!-- Button that the user can click -->
+    <button id="btn1">Click Me</button>
+
+    <script>
+        // Select paragraph and button elements by their IDs
+        let message = document.getElementById("message");
+        let btn1 = document.getElementById("btn1");
+
+        // --- Option 1: Using onclick property (only one handler allowed) ---
+        /*
+        btn1.onclick = function() {
+            // Change text immediately after click
+            message.textContent = "Button clicked!";
+
+            // After 2 seconds, change message again
+            setTimeout(() => {
+                message.textContent = "Thanks for clicking!";
+            }, 2000);
+        }
+        */
+
+        // --- Option 2: Using addEventListener (can handle multiple events) ---
+        // This method is preferred because it allows adding more event handlers if needed
+        btn1.addEventListener("click", () => {
+            // Change message right after the button is clicked
+            message.textContent = "Button clicked!";
+
+            // Wait 2 seconds, then update the message again
+            setTimeout(() => {
+                message.textContent = "Thanks for clicking!";
+            }, 2000);
+        });
+    </script>
+</body>
+</html>
